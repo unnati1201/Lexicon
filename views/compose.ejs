@@ -1,0 +1,33 @@
+<%- include("partials/Header2") -%>
+
+<div class="container" id="composeContainer">
+  <form action="/compose" method="post">
+    <div class="form-group">
+      <div class="input-group mb-3" style="width:100%; margin:auto; padding-top: 20px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">New Word</span>
+        </div>
+      <input class="form-control" type="text" name="newWord">
+      </div>
+    <span></span>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Synonyms</span>
+        </div>
+      <input class="form-control" type="text" name="synonyms" value="">
+      </div>
+      <br>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Explaination</span>
+        </div>
+      <textarea class="form-control" name="explaination" rows="5" cols="40"></textarea>
+      </div>
+      <br>
+      <button class="btn btn-lg btn-secondary" type="submit" name="composeSubmit">Submit</button>
+    </div>
+  </form>
+</div>
+<%- include("partials/Footer") -%>

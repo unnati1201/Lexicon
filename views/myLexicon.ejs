@@ -1,0 +1,65 @@
+<%- include("partials/Header2"); -%>
+
+<div class="container">
+  <script>
+    function search(){
+    var input = document.getElementById("myInput");
+    var filter = input.value.toUpperCase();
+    var x = document.getElementById("myTable");
+    var element = x.getElementsByTagName("tr");
+
+    for(var i=0; i<element.length; i++){
+      var td = element[i].getElementsByTagName("td")[1];
+      if(td){
+        txt = td.innerHTML;
+        if(txt.toUpperCase().indexOf(filter) > -1){
+          element[i].style.display = "";
+        }else{
+          element[i].style.display = "none";
+        }
+      }
+    }
+  }</script>
+  <div id="myLexiconDivOne">
+    <h1 id="myLexiconHeading" >Welcome to Personal Digital Dictionary</h1>
+    <a href="/compose" class="btn btn-lg btn-outline-secondary">Add new word</a>
+    <span></span>
+    <div class="input-group mb-3" style="width:30%; margin:auto; padding-top: 20px;">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+      </div>
+      <input type="text" class="form-control" id="myInput" onkeyup="search();" name="search" placeholder="Search...">
+    </div>
+  </div>
+  <br>
+  <div class="wordList">
+    <table class="table table-striped" id="myTable">
+      <thead>
+        <tr>
+          <th>Sno.</th>
+          <th>Word</th>
+          <th>Synonyms</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% dataList.forEach((data, index)=>{ %>
+          <form class="" action="/delete" method="post">
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><a class="wordTitle" href="/word/<%= data._id %>"><%= data.word %></a></td>
+              <td>
+                <%= data.synonyms.substring(0,50) + "..." %></td>
+              <td>
+                <button class="trash" type="submit" name="delete" value="<%= data._id %>">
+                  <span align="right"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                </button>
+              </td>
+            </tr>
+          </form>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include("partials/Footer"); -%>

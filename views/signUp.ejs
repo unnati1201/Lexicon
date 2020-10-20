@@ -1,0 +1,21 @@
+<%- include("partials/Header"); -%>
+
+<div class="text-center">
+  <form class="form-signin" action="/signUp" method="post">
+    <img src="/images/Lexicon-Logo.png" width="110" height="110" alt="Lexicon Logo">
+    <h3 class="h3 mb-3 font-weight-normal">Sign Up Here!!!</h3>
+    <label class="sr-only">Email Address</label>
+    <input class="form-control" type="email" name="username" value="" placeholder="Email Address">
+
+    <label class="sr-only">Password</label>
+    <input id="login-password" class="form-control" type="password" name="password" value="" placeholder="Password">
+
+    <label class="sr-only">Confirm Password</label>
+    <input id="login-confirmPassword" class="form-control" type="password" name="confirmPassword" value="" placeholder="Confirm Password">
+
+    <button type="submit" name="button" class="btn btn-lg btn-dark btn-block">Sign Up</button>
+  </form>
+
+</div>
+
+<%- include("partials/Footer"); -%>
